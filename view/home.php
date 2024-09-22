@@ -34,8 +34,24 @@
     <section class="conteudo-home">
         <img src="../img/home.png">
     </section>
-
+    <p class="descoberta">DESCOBERTAS DO DIA</p>
+    <hr class="linha-colorida">
+    <section class="containerr">
+        <?php if (!empty($produtos)): ?>
+            <?php foreach ($produtos as $produto): ?>
+                <a href=""><button class="botao-com-imagem">
+                    <img src="<?= $produto['imagem']; ?>" alt="Imagem do botão">
+                    <span class="nomeproduto"><?= $produto['nome']; ?></span>
+                    <span class="textolaranja"><?= $produto['preco']; ?></span>
+                </button></a>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Nenhum produto encontrado.</p>
+        <?php endif; ?>
+    </section>
+    
     <footer class="rodape-login">
+
         <img src="../img/footer-login.png">
         <hr>
         <p>© 2022 Xhopii. Todos os direitos reservados</p>

@@ -7,6 +7,11 @@ class Produto{
     protected $descricao;
     protected $valor;
 
+    class ProdutoModel {
+        public function retornarProdutos() {
+            return retornarProdutos(); // Chama a função do funcoesBD.php
+        }
+    }
 
     public function __construct($nome, $fabricante, $descricao, $valor){
         $this->nome = $Nome;

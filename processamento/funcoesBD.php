@@ -38,12 +38,17 @@ function retornarClientes(){
     return $listaClientes;
 }
 
-function retornarProdutos(){
+function retornarProdutos() {
     $conexao = conectarBD();
-    $consulta = "SELECT * FROM produto";
-    $listaProdutos = mysqli_query($conexao,$consulta);
-    return $listaProdutos;
+    if ($conexao) {
+        $consulta = "SELECT * FROM produto";
+        $listaProdutos = mysqli_query($conexao, $consulta);
+        return mysqli_fetch_all($listaProdutos, MYSQLI_ASSOC); // Certifique-se de retornar como array associativo
+    } else {
+        return []; // Retorne um array vazio se a conexão falhar
+    }
 }
+
 
 //IMPLEMENTAR AQUI O RETORNO DA LISTA DE FUNCIONÁRIOS EXISTENTES NO BANCO DE DADOS
 
